@@ -1,0 +1,70 @@
+<launch>
+    <arg name="mode"        default="1" />
+
+    <arg name="num_robots"  default="5" />
+    <arg name="graph_dir"   default="/home/hsuanpin/DPGO_PUDQ_Matlab/DPGO_PUDQ_Matlab/matlab_export_c/without_cartan_sync" />
+    
+    <arg name="mu_reg"      default="0.1" />
+    <arg name="grad_tol"    default="0.01" />
+    <arg name="lambda"      default="1.0" /> 
+    <arg name="comm_delay"  default="0.2" /> 
+    
+    <group ns="distributed_pgo">
+        
+        <node pkg="distributed_pgo" type="robot_node" name="robot_0" output="screen">
+            <param name="robot_id" value="0" />
+            <param name="shutdown_mode" value="$(arg mode)" />
+            <param name="num_robots" value="$(arg num_robots)" />
+            <param name="graph_directory" value="$(arg graph_dir)" />
+            <param name="mu_reg" value="$(arg mu_reg)" />
+            <param name="grad_tol" value="$(arg grad_tol)" />
+            <param name="poisson_lambda" value="$(arg lambda)" />
+            <param name="comm_delay" value="$(arg comm_delay)" />
+        </node>
+
+        <node pkg="distributed_pgo" type="robot_node" name="robot_1" output="screen">
+            <param name="robot_id" value="1" />
+            <param name="shutdown_mode" value="$(arg mode)" />
+            <param name="num_robots" value="$(arg num_robots)" />
+            <param name="graph_directory" value="$(arg graph_dir)" />
+            <param name="mu_reg" value="$(arg mu_reg)" />
+            <param name="grad_tol" value="$(arg grad_tol)" />
+            <param name="poisson_lambda" value="$(arg lambda)" />
+            <param name="comm_delay" value="$(arg comm_delay)" />
+        </node>
+
+        <node pkg="distributed_pgo" type="robot_node" name="robot_2" output="screen">
+            <param name="robot_id" value="2" />
+            <param name="shutdown_mode" value="$(arg mode)" />
+            <param name="num_robots" value="$(arg num_robots)" />
+            <param name="graph_directory" value="$(arg graph_dir)" />
+            <param name="mu_reg" value="$(arg mu_reg)" />
+            <param name="grad_tol" value="$(arg grad_tol)" />
+            <param name="poisson_lambda" value="$(arg lambda)" />
+            <param name="comm_delay" value="$(arg comm_delay)" />
+        </node>
+
+        <node pkg="distributed_pgo" type="robot_node" name="robot_3" output="screen">
+            <param name="robot_id" value="3" />
+            <param name="shutdown_mode" value="$(arg mode)" />
+            <param name="num_robots" value="$(arg num_robots)" />
+            <param name="graph_directory" value="$(arg graph_dir)" />
+            <param name="mu_reg" value="$(arg mu_reg)" />
+            <param name="grad_tol" value="$(arg grad_tol)" />
+            <param name="poisson_lambda" value="$(arg lambda)" />
+            <param name="comm_delay" value="$(arg comm_delay)" />
+        </node>
+
+        <node pkg="distributed_pgo" type="robot_node" name="robot_4" output="screen">
+            <param name="robot_id" value="4" />
+            <param name="shutdown_mode" value="$(arg mode)" />
+            <param name="num_robots" value="$(arg num_robots)" />
+            <param name="graph_directory" value="$(arg graph_dir)" />
+            <param name="mu_reg" value="$(arg mu_reg)" />
+            <param name="grad_tol" value="$(arg grad_tol)" />
+            <param name="poisson_lambda" value="$(arg lambda)" />
+            <param name="comm_delay" value="$(arg comm_delay)" />
+        </node>
+
+    </group>
+</launch>
