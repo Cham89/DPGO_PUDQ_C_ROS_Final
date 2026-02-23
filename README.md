@@ -1,8 +1,10 @@
-Step 1: Run Mat_to_C.m to generate the g2o file into an readible input for C++ 
-Step 2: create a workspace and put rest of the files (except Mat_to_C.m) into the workspace 
-Step 3: catkin_make
-Step 4: source devel/setup.bash
-Step 5: roslaunch distributed_pgo start_sim.launch mode:=2   
-			( mode 1 means truely distributed stop method / mode 2 means if one robot stops it forces other all to stop together)
-Step 6: ./devel/lib/distributed_pgo/evaluate_results 5 /home/hsuanpin/DPGO_PUDQ_Matlab/	DPGO_PUDQ_Matlab/matlab_export_c
-	
+### Running the Simulation
+
+1. Run `Mat_to_C.m` to convert the MATLAB data into a `.g2o` file readable by C++.
+2. Create a Catkin workspace and place all source files (excluding the MATLAB script) into the `src` folder.
+3. Build the project using `catkin_make`.
+4. Source the environment: `source devel/setup.bash`.
+5. Launch the simulation: `roslaunch distributed_pgo start_sim.launch mode:=2`. 
+   * *Mode 1: Truly distributed stop method.*
+   * *Mode 2: Forced synchronized stop.*
+6. Evaluate the results: `./devel/lib/distributed_pgo/evaluate_results 5 /path/to/your/export_folder/`.
